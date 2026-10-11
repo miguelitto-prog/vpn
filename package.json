@@ -1,0 +1,23 @@
+{
+  "name": "minha-vpn",
+  "productName": "Minha VPN",
+  "version": "1.0.0",
+  "description": "Cliente VPN desktop (WireGuard) para Windows e macOS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis",
+    "dist:mac": "electron-builder --mac dmg"
+  },
+  "devDependencies": {
+    "electron": "31.7.7",
+    "electron-builder": "24.13.3"
+  },
+  "build": {
+    "appId": "br.minhavpn.app",
+    "productName": "Minha VPN",
+    "files": ["main.js", "preload.js", "ui/**/*"],
+    "win": { "target": "nsis" },
+    "mac": { "target": "dmg", "category": "public.app-category.utilities" }
+  }
+}

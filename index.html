@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'">
+  <title>Minha VPN</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-estado="off">
+  <div id="aviso" class="aviso" hidden></div>
+
+  <main class="painel">
+    <button id="botao" class="anel" aria-live="polite">
+      <span class="anel-luz"></span>
+      <span id="botaoTexto" class="anel-texto">Conectar</span>
+    </button>
+    <p id="status" class="status">Desprotegido</p>
+    <p id="detalhe" class="detalhe">Buscando seu IP…</p>
+    <p id="tempo" class="tempo" hidden></p>
+  </main>
+
+  <section class="servidores">
+    <div class="servidores-topo">
+      <h2>Servidores</h2>
+      <button id="adicionar" class="link">Adicionar</button>
+    </div>
+    <ul id="lista" class="lista"></ul>
+    <p id="vazio" class="vazio" hidden>Nenhum servidor ainda. Adicione o arquivo .conf gerado no seu VPS.</p>
+  </section>
+
+  <dialog id="modal" class="modal">
+    <form method="dialog" id="form">
+      <h3>Novo servidor</h3>
+      <p id="endpoint" class="detalhe"></p>
+      <label>Nome
+        <input id="campoNome" required maxlength="30" placeholder="Ex.: São Paulo">
+      </label>
+      <label>Local (opcional)
+        <input id="campoLocal" maxlength="30" placeholder="Ex.: Brasil">
+      </label>
+      <p id="erroModal" class="erro" hidden></p>
+      <div class="acoes">
+        <button value="cancelar" formnovalidate class="link">Cancelar</button>
+        <button id="salvar" value="salvar" class="primario">Salvar servidor</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
